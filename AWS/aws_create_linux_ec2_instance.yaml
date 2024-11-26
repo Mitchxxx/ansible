@@ -54,7 +54,7 @@
         name: aws-ansible-key
         region: eu-west-1
         state: present
-        register: ec2_key
+      register: ec2_key
 
     - debug:
         var: ec2_key
@@ -67,14 +67,14 @@
         when: ec2_key.key.private_key is defined and not lookup('file', './aws-ansible-key.pem')
 
     - name: linux - create ec2 instance
-      ec2:
+      ec2_instance:
         key_name: aws-ansible-key
         instance_type: t2.micro
         image_id: ami-02141377eee7defb9
         region: eu-west-1
         count: 1
         vpc_subnet_id: "{{ ansible_subnet.subnets[0].id }}"
-        userdata: |
+        user_data: |
           #!/bin/bash
           sudo adduser ansible
           sudo echo "{{ password }}" | passwd --stdin ansible
@@ -96,7 +96,7 @@
 
     - name: Pause before associating an Elastic Ip
       pause:
-        seconds: 300
+        seconds: 60
 
     - name: associate new elastic Ips with each of the instances
       ec2_eip:
