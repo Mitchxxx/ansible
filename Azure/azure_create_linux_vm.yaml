@@ -85,9 +85,9 @@
         network_interfaces: nic-linux
         #custom_data: "{{ lookup('file', 'cloud-init.yml') }}"
         image:
-          offer: CentOS
-          publisher: OpenLogic
-          sku: '8.0'
+          offer: 0001-com-ubuntu-server-jammy
+          publisher: Canonical
+          sku: 22_04-lts
           version: latest
 
     - name: Linux - update sudoers

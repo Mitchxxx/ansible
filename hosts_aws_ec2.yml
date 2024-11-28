@@ -1,0 +1,7 @@
+plugin: aws_ec2
+regions:
+  - eu-west-1
+filters:
+  tag:app: ansible
+groups:
+  linux: "'linux' in tags.Name"

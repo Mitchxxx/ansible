@@ -96,7 +96,7 @@
         vpc_subnet_id: "{{ ansible_subnet.subnets[0].id }}"
         user_data: |
           <powershell>
-          $content = (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1' -UseBasicParsing).content
+          $content = (Invoke-WebRequest -Uri 'https://github.com/ansible/ansible-documentation/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1' -UseBasicParsing).content
           iex $content
           $password = "{{ password }}" | ConvertTo-SecureString -AsPlainText -Force
           New-LocalUser 'ansible' -Password $password
