@@ -25,8 +25,8 @@ RUN pip3 install --upgrade pip; \
     pip3 install boto; \
     pip3 install boto3; \
     pip3 install "pywinrm>=0.3.0"; \
-    pip3 install ansible[azure] --break-system-packages;; \
-    pip3 install ansible-lint --break-system-packages;
+    pip3 install ansible[azure] --break-system-packages; \
+    pip3 install ansible-lint --break-system-packages
 
 COPY ./entrypoint.sh /entrypoint.sh
 
