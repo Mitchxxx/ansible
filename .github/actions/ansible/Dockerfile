@@ -20,11 +20,11 @@ RUN apt-get update; \
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash ;
 
-RUN pip3 install --upgrade pip; \
-    pip3 install "ansible==2.9.12"; \
-    pip3 install boto; \
-    pip3 install boto3; \
-    pip3 install "pywinrm>=0.3.0"; \
+RUN pip3 install --upgrade pip --break-system-packages; \
+    pip3 install "ansible==2.9.12" --break-system-packages; \
+    pip3 install boto --break-system-packages; \
+    pip3 install boto3 --break-system-packages; \
+    pip3 install "pywinrm>=0.3.0" --break-system-packages; \
     pip3 install ansible[azure] --break-system-packages; \
     pip3 install ansible-lint --break-system-packages
 
